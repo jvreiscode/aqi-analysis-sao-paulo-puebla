@@ -1,4 +1,4 @@
-#ESPANHOS
+#Español
 # 📊 Análisis de AQI - São Paulo vs Puebla
 
 Proyecto de análisis de la calidad del aire comparando São Paulo (Brasil) y Puebla (México), utilizando modelos de regresión para evaluar el impacto de partículas y factores urbanos en el AQI.
