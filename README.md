@@ -1,223 +1,177 @@
-#ESPANHOL
-# 📊 Análisis de AQI - São Paulo vs Puebla
+(Versión alineada - Español)
+📊 Análisis de AQI - São Paulo vs Puebla
 
-Proyecto de análisis de la calidad del aire comparando São Paulo (Brasil) y Puebla (México), utilizando regresión lineal para evaluar el impacto de PM2.5 y PM10 en el AQI.
+Proyecto de análisis de la calidad del aire comparando São Paulo (Brasil) y Puebla (México), utilizando modelos de regresión para evaluar el impacto de partículas y factores urbanos en el AQI.
 
----
+🎯 Objetivo
 
-## 🎯 Objetivo
+Analizar el impacto de las partículas PM2.5 y PM10 en el índice de calidad del aire (AQI) y comparar su comportamiento entre dos ciudades con contextos distintos.
 
-Analizar cómo las partículas **PM2.5** y **PM10** influyen en el índice de calidad del aire (**AQI**) y comparar el comportamiento entre dos ciudades de distintos países.
+Además, se busca diferenciar entre:
 
----
+Factores directos → partículas (PM2.5, PM10)
+Factores indirectos → variables urbanas (CO₂, vehículos, densidad, etc.)
+🌫️ ¿Qué son PM2.5 y PM10?
+PM2.5: partículas muy finas (≤ 2,5 µm), capaces de penetrar profundamente en los pulmones
+PM10: partículas más grandes (≤ 10 µm), afectan principalmente las vías respiratorias
 
-## 🌫️ ¿Qué son PM2.5 y PM10?
+Estas partículas son determinantes en el cálculo del AQI.
 
-- **PM2.5**: partículas muy finas (≤ 2,5 µm), pueden penetrar profundamente en los pulmones  
-- **PM10**: partículas más grandes (≤ 10 µm), afectan principalmente las vías respiratorias  
+🧹 Tratamiento de los datos
 
-Estas partículas se utilizan directamente en el cálculo del AQI.
+Se aplicaron las siguientes etapas:
 
----
+Eliminación de valores nulos
+Filtrado de valores fuera del rango:
+AQI > 500
+PM2.5 > 500
+PM10 > 500
+valores negativos
+Estandarización de la lectura del CSV
+⚙️ Metodología
 
-## 🧹 Tratamiento de los datos
+Se desarrollaron tres modelos de regresión:
 
-Se aplicaron los siguientes pasos:
+Modelo 1 – Directo (Poluentes)
+PM2.5, PM10 → AQI
+Modelo 2 – Indirecto (Urbano)
+CO2, vehículos, industria, densidad poblacional, áreas verdes → AQI
+Modelo 3 – Completo (Híbrido)
+Combinación de todas las variables
 
-- Eliminación de valores nulos  
-- Filtrado de valores fuera del rango:
-  - AQI > 500  
-  - PM2.5 > 500  
-  - PM10 > 500  
-  - valores negativos  
-- Estandarización de la lectura del archivo CSV  
+División de datos:
 
----
+80% entrenamiento
+20% prueba
+📈 Resultados
+📍 Modelo 1 – Poluentes
+R² ≈ 0.86 – 0.87
+Alta capacidad explicativa
+📍 Modelo 2 – Urbano
+R² ≈ 0.40 – 0.50
+Capacidad limitada
+📍 Modelo 3 – Completo
+R² ≈ 0.87 – 0.88
+Leve mejora predictiva
+🔍 Interpretación
+Existe una relación directa fuerte entre partículas y AQI
+PM2.5 presenta mayor impacto relativo que PM10
+Variables urbanas actúan como factores indirectos
+El comportamiento es consistente entre ambas ciudades
+💡 Insight principal
 
-## ⚙️ Metodología
+La calidad del aire no está determinada directamente por factores urbanos, sino por la concentración de partículas, que son consecuencia de estos factores.
 
-- Modelo: **Regresión Lineal**
-- Variables independientes:
-  - PM2.5
-  - PM10
-- Variable dependiente:
-  - AQI
-- División:
-  - 80% entrenamiento
-  - 20% prueba
+📊 Visualización
 
----
+Se generaron gráficos para analizar:
 
-## 📈 Resultados
+PM2.5 vs AQI
+PM10 vs AQI
+Matriz de correlación entre variables
+🚀 Tecnologías utilizadas
+Python
+Pandas
+Scikit-learn
+Matplotlib
+Seaborn
+📁 Estructura del proyecto
 
-### 📍 São Paulo
-- R² ≈ 0.86  
-- PM2.5 ≈ 0.68  
-- PM10 ≈ 0.54  
+📂 proyecto-aqi
+├── data/
+├── codigo/
+├── graficos/
+├── README.md
+└── analisis.pdf
 
-### 📍 Puebla
-- R² ≈ 0.87  
-- PM2.5 ≈ 0.65  
-- PM10 ≈ 0.53  
+📌 Posibles mejoras
+Modelos en múltiples etapas (urbano → partículas → AQI)
+Modelos no lineales (Random Forest, etc.)
+Análisis temporal
+Expansión geográfica
+🤝 Proyecto colaborativo
 
----
+Proyecto desarrollado en colaboración entre Brasil y México.
 
-## 🔍 Interpretación
+(Versão alinhada - Português)
+📊 Análise de AQI - São Paulo vs Puebla
 
-- Existe una relación lineal positiva entre PM y AQI  
-- PM2.5 presenta un impacto ligeramente mayor que PM10  
-- El comportamiento es consistente entre ambas ciudades  
+Projeto de análise da qualidade do ar comparando São Paulo (Brasil) e Puebla (México), utilizando modelos de regressão para avaliar o impacto de partículas e fatores urbanos no AQI.
 
----
+🎯 Objetivo
 
-## 💡 Insight principal
+Analisar o impacto das partículas PM2.5 e PM10 no índice de qualidade do ar (AQI) e comparar seu comportamento entre duas cidades com contextos distintos.
 
-> El aumento de la concentración de partículas en el aire está directamente asociado al empeoramiento de la calidad del aire, independientemente de la ciudad analizada.
+Além disso, busca-se diferenciar:
 
----
+Fatores diretos → partículas (PM2.5, PM10)
+Fatores indiretos → variáveis urbanas (CO₂, veículos, densidade, etc.)
+🌫️ O que são PM2.5 e PM10?
+PM2.5: partículas muito finas (≤ 2,5 µm), capazes de penetrar profundamente nos pulmões
+PM10: partículas maiores (≤ 10 µm), afetam principalmente as vias respiratórias
 
-## 📊 Visualización
+Essas partículas são determinantes no cálculo do AQI.
 
-Los gráficos muestran la relación entre:
-
-- PM2.5 vs AQI  
-- PM10 vs AQI  
-
-con la línea de regresión representando el modelo.
-
----
-
-## 🚀 Tecnologías utilizadas
-
-- Python  
-- Pandas  
-- Scikit-learn  
-- Matplotlib  
-
----
-
-## 📁 Estructura del proyecto
-
-📂 proyecto-aqi  
-├── data/  
-├── codigo/  
-├── graficos/  
-├── README.md  
-└── analisis.pdf  
-
----
-
-## 📌 Posibles mejoras
-
-- Incluir más variables (CO2, vehículos, etc.)  
-- Probar modelos más avanzados  
-- Análisis temporal de los datos  
-
----
-
-## 🤝 Proyecto colaborativo
-
-Proyecto desarrollado en colaboración entre Brasil y México, utilizando datos de la ciudad de Puebla.
-
-#PORTUGUES
-# 📊 Análise de AQI - São Paulo vs Puebla
-
-Projeto de análise da qualidade do ar comparando São Paulo (Brasil) e Puebla (México), utilizando regressão linear para avaliar o impacto de PM2.5 e PM10 no AQI.
-
----
-
-## 🎯 Objetivo
-
-Analisar como as partículas **PM2.5** e **PM10** influenciam o índice de qualidade do ar (**AQI**) e comparar o comportamento entre duas cidades de países diferentes.
-
----
-
-## 🌫️ O que são PM2.5 e PM10?
-
-- **PM2.5**: partículas muito finas (≤ 2,5 µm), conseguem penetrar profundamente nos pulmões  
-- **PM10**: partículas maiores (≤ 10 µm), afetam principalmente as vias respiratórias  
-
-Essas partículas são utilizadas diretamente no cálculo do AQI.
-
----
-
-## 🧹 Tratamento dos dados
+🧹 Tratamento dos dados
 
 Foram aplicadas as seguintes etapas:
 
-- Remoção de valores nulos  
-- Filtragem de valores fora do padrão:
-  - AQI > 500  
-  - PM2.5 > 500  
-  - PM10 > 500  
-  - valores negativos  
-- Padronização da leitura do CSV  
+Remoção de valores nulos
+Filtragem de valores fora do padrão:
+AQI > 500
+PM2.5 > 500
+PM10 > 500
+valores negativos
+Padronização da leitura do CSV
+⚙️ Metodologia
 
----
+Foram desenvolvidos três modelos de regressão:
 
-## ⚙️ Metodologia
+Modelo 1 – Direto (Poluentes)
+PM2.5, PM10 → AQI
+Modelo 2 – Indireto (Urbano)
+CO2, veículos, indústria, densidade populacional, áreas verdes → AQI
+Modelo 3 – Completo (Híbrido)
+Combinação de todas as variáveis
 
-- Modelo: **Regressão Linear**
-- Variáveis independentes:
-  - PM2.5
-  - PM10
-- Variável dependente:
-  - AQI
-- Divisão:
-  - 80% treino
-  - 20% teste
+Divisão dos dados:
 
----
+80% treino
+20% teste
+📈 Resultados
+📍 Modelo 1 – Poluentes
+R² ≈ 0.86 – 0.87
+Alto poder explicativo
+📍 Modelo 2 – Urbano
+R² ≈ 0.40 – 0.50
+Baixa capacidade explicativa
+📍 Modelo 3 – Completo
+R² ≈ 0.87 – 0.88
+Leve ganho preditivo
+🔍 Interpretação
+Existe uma relação direta forte entre partículas e AQI
+PM2.5 apresenta maior impacto relativo que PM10
+Variáveis urbanas atuam como fatores indiretos
+O comportamento é consistente entre as cidades
+💡 Insight principal
 
-## 📈 Resultados
+A qualidade do ar não é diretamente determinada por fatores urbanos, mas sim pela concentração de partículas, que são consequência desses fatores.
 
-### 📍 São Paulo
-- R² ≈ 0.86  
-- PM2.5 ≈ 0.68  
-- PM10 ≈ 0.54  
+📊 Visualização
 
-### 📍 Puebla
-- R² ≈ 0.87  
-- PM2.5 ≈ 0.65  
-- PM10 ≈ 0.53  
+Foram gerados gráficos para análise de:
 
----
+PM2.5 vs AQI
+PM10 vs AQI
+Matriz de correlação entre variáveis
+🚀 Tecnologias utilizadas
+Python
+Pandas
+Scikit-learn
+Matplotlib
+Seaborn
+📁 Estrutura do projeto
 
-## 🔍 Interpretação
-
-- Existe uma relação linear positiva entre PM e AQI  
-- PM2.5 apresenta impacto levemente maior que PM10  
-- O comportamento é consistente entre as duas cidades  
-
----
-
-## 💡 Insight principal
-
-> O aumento da concentração de partículas no ar está diretamente associado à piora da qualidade do ar, independentemente da cidade analisada.
-
----
-
-## 📊 Visualização
-
-Os gráficos mostram a relação entre:
-
-- PM2.5 vs AQI  
-- PM10 vs AQI  
-
-com linha de regressão representando o modelo.
-
----
-
-## 🚀 Tecnologias utilizadas
-
-- Python  
-- Pandas  
-- Scikit-learn  
-- Matplotlib  
-
----
-
-## 📁 Estrutura do projeto
 📂 projeto-aqi
 ├── data/
 ├── codigo/
@@ -225,16 +179,11 @@ com linha de regressão representando o modelo.
 ├── README.md
 └── analise.pdf
 
----
+📌 Possíveis melhorias
+Modelagem em múltiplas etapas (urbano → partículas → AQI)
+Modelos não lineares
+Análise temporal
+Expansão para outras cidades
+🤝 Projeto colaborativo
 
-## 📌 Possíveis melhorias
-
-- Incluir mais variáveis (CO2, veículos, etc.)
-- Testar modelos mais avançados
-- Análise temporal dos dados
-
----
-
-## 🤝 Projeto colaborativo
-
-Projeto desenvolvido em colaboração entre Brasil e México, utilizando dados da cidade de Puebla.
+Projeto desenvolvido em colaboração entre Brasil e México.
